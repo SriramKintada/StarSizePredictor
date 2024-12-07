@@ -2,9 +2,12 @@
 
 This web application provides the following functionalities:
 
-1.Allows users to create a synthetic dataset containing 'n' stars.
-2.The dataset automatically includes the stars' brightness and corresponding sizes.
-3.Using Artificial Intelligence (specifically linear regression), the program predicts the star sizes based on their brightness values.
+1.Allows users to create a synthetic dataset containing 'n' stars.  
+
+2.The dataset automatically includes the stars' brightness and corresponding sizes.  
+
+3.Using Artificial Intelligence (specifically linear regression), the program predicts the star sizes based on their brightness values.  
+
 4.A feature is available to generate a plot of the predictions, which helps evaluate the model's performance on the unseen data.
 
 
