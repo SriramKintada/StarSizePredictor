@@ -47,15 +47,11 @@ async def generate_data(num_samples: int = Query(500, gt=0, description="Number 
 
     # Create a DataFrame to store the generated data
 
-data = pd.DataFrame(list(zip(brightness.reshape(num_samples,), size.reshape(num_samples,))), 
-                       columns=['Brightness', 'Size'])
-    # Convert DataFrame to a CSV byte stream for response
-output = data.to_csv(index=False).encode('utf-8')
-return StreamingResponse(
-    io.BytesIO(output),
-    media_type="text/csv",
-    headers={"Content-Disposition": f"attachment; filename=star_data_{num_samples}.csv"}
-)
+    data = pd.DataFrame(list(zip(brightness.reshape(num_samples,), size.reshape(num_samples,))), 
+                           columns=['Brightness', 'Size'])
+        # Convert DataFrame to a CSV byte stream for response
+    output = data.to_csv(index=False).encode('utf-8')
+    return StreamingResponse(io.BytesIO(output),media_type="text/csv",headers={"Content-Disposition": f"attachment; filename=star_data_{num_samples}.csv"})
 
 @app.post("/predict/")
 async def predict(file: UploadFile = File(...)):
@@ -75,11 +71,7 @@ async def predict(file: UploadFile = File(...)):
     data['Predicted Size'] = WEIGHT * data['Brightness'] + BIAS
     output = data.to_csv(index=False).encode('utf-8')
 
-    return StreamingResponse(
-        io.BytesIO(output),
-        media_type="text/csv",
-        headers={"Content-Disposition": "attachment; filename=predicted_sizes.csv"},
-    )
+    return StreamingResponse(io.BytesIO(output),media_type="text/csv",headers={"Content-Disposition": "attachment; filename=predicted_sizes.csv"})
 
 @app.post("/plot/")
 async def plot(file: UploadFile = File(...)):
