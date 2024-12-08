@@ -10,6 +10,7 @@ This web application provides the following functionalities:
 
 4.A feature is available to generate a plot of the predictions, which helps evaluate the model's performance on the unseen data.
 
+LINK: https://starsizepredictor-ijojm7urucn6qppdaqcukm.streamlit.app/
 
 #### Python Libraries Used:
 
