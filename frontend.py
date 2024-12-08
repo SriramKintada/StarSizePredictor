@@ -79,7 +79,7 @@ st.markdown(
 )
 
 # API Endpoints
-API_URL = "http://127.0.0.1:8000"  # Update to your backend API URL
+API_URL = "https://starsizepredictor-5.onrender.com"  # Update to your backend API URL
 
 # Initialize Session States
 if "generated_data" not in st.session_state:
